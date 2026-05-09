@@ -12,13 +12,14 @@ int main() {
 char Estado1, Estado2;
 char Código1[4], Código2[4];
 char Cidade1[20], Cidade2[20];
-int População1, População2;
+unsigned long int População1, População2;
 float Área1, Área2;
 float PIB1, PIB2;
 int Pontos1, Pontos2;
 float Densidade1, Densidade2;
 float Capita1, Capita2;
 float media1, media2, media3, media4;
+float poder1, poder2;
 
   // Área para entrada de dados
 
@@ -40,7 +41,9 @@ printf("Digite a quantidade de pontos turísticos na sua cidade: ");
 scanf("%d", &Pontos1);
 
 media1 = (População1/Área1);
+Densidade1 = media1;
 media2 = (PIB1/População1);
+Capita1 = media2;
 
 
 printf("\nCarta 2:\n");
@@ -61,8 +64,23 @@ printf("Digite a quantidade de pontos turísticos na sua cidade: ");
 scanf("%d", &Pontos2);
 
 media3 = (População2/Área2);
+Densidade2 = media3;
 media4 = (PIB2/População2);
+Capita2 = media4;
 
+  //Área para soma dos atributos:
+
+  int super_poder1 =  População1 + Área1 + PIB1 + Pontos1 + Densidade1 + Capita1;
+  int super_poder2 = População2 + Área2 + PIB2 + Pontos2 + Densidade2 + Capita2;
+
+  //Área para comparação das cartas:
+
+  int resultado1 = População1 > População2;
+  int resultado2 = Área1 > Área2;
+  int resultado3 = PIB1 > PIB2;
+  int resultado4 = Pontos1 > Pontos2;
+  int resultado5 = Densidade1 < Densidade2;
+  int resultado6 = Capita1 > Capita2;
 
   // Área para exibição dos dados da cidade
 
@@ -91,7 +109,22 @@ media4 = (PIB2/População2);
   printf("O PIB da sua cidade é: %f\n", PIB2);
   printf("A quantidade de pontos turísticos da sua cidade é de: %d\n", Pontos2);
   printf("A densidade populacional é: %.2f\n", media3);
-  printf("O PIB per capita é: %.2f\n, media4");
+  printf("O PIB per capita é: %.2f\n", media4);
+
+  printf("\n\nComparação entre as cartas:\n");
+  printf("População: Carta 1 venceu: %d\n", resultado1);
+  printf("Área: Carta 1 venceu: %d\n", resultado2);
+  printf("PIB: Carta 1 venceu: %d\n", resultado3);
+  printf("Pontos turísticos: Carta 1 venceu: %d\n", resultado4);
+  printf("Densidade populacional: Carta 1 venceu: %d\n", resultado5);
+  printf("PIB per capita: Carta 1 venceu: %d\n", resultado6);
+
+printf("\n\nSuper Poder das Cartas:\n");
+printf("O super poder da carta 1 é: %d\n", super_poder1);
+printf("O super poder da carta 2 é: %d\n", super_poder2);
+
+int vencedor = super_poder1 > super_poder2;
+printf("\n\nO vencedor é a carta 1? %d\n", vencedor);
 
 
 return 0;
